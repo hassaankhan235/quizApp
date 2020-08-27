@@ -1,4 +1,4 @@
-body{
+body {
   overflow: hidden;
 }
 .App {
@@ -6,32 +6,43 @@ body{
   width: 100vw;
   height: 100vh;
   text-align: center;
-  
-background: linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0,
-radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0,
-radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #48B;
-background-size: 110px  200px;
-background-repeat: repeat-x;
+
+  background: linear-gradient(#ffffff 50%, rgba(255, 255, 255, 0) 0) 0 0,
+    radial-gradient(circle closest-side, #ffffff 53%, rgba(255, 255, 255, 0) 0)
+      0 0,
+    radial-gradient(circle closest-side, #ffffff 50%, rgba(255, 255, 255, 0) 0)
+      55px 0 #48b;
+  background-size: 110px 200px;
+  background-repeat: repeat-x;
 }
 
 .App-header {
   margin: 40px auto;
-  background: linear-gradient( rgba(238, 85, 0, 0.9) 35%, rgb(255, 255, 255) 20% 97% , #48b 97% 100% );
+  background: linear-gradient(
+    rgba(238, 85, 0, 1) 35%,
+    rgb(255, 255, 255) 20% 97%,
+    #48b 97% 100%
+  );
   display: flex;
   flex-direction: column;
   /* align-items: center; */
   margin-bottom: 0em;
   padding: 0;
   font-size: calc(10px + 2vmin);
-  border-radius: 13% 0 ;
+  border-radius: 13% 0;
   color: rgb(255, 255, 255);
   text-align: left;
   width: 55%;
   min-height: 60%;
   box-shadow: 10px 10px 10px rgb(93, 93, 93), -5px 10px 10px rgb(93, 93, 93);
+  /* clip-path: circle(25% at 20% 30%); */
+  /* transition: clip-path 0.5s ease-in-out; */
+}
+.App-header:hover {
+  clip-path: circle(100%);
 }
 
-button{
+button {
   width: 100px;
   height: 30px;
   font-size: 13px;
@@ -45,25 +56,38 @@ button{
   background-color: #e50;
   color: white;
 }
-button:active{
+button:active {
   background-color: rgb(255, 255, 255);
-  color: #48B;
+  color: #48b;
 }
 
-.question{
-  margin-top: 35px ;
+.question {
+  margin-top: 35px;
   margin-left: 20px;
   margin-right: 10px;
 }
 
-.heading{
+.heading {
+  display: flex;
   margin: 0 auto;
-  color: #e50;
-  text-shadow: 1px 2px black;
+  color: #48b;
+  text-shadow: 1px 2px rgb(211, 198, 198);
+  text-shadow: 1px -2px rgb(12, 12, 12);
+  align-items: center;
   /* background-color: gray; */
-
 }
-form{
+.heading::before,
+.heading::after {
+  content: "";
+  margin: 0.2rem;
+  flex: 1;
+  border: solid gray;
+  height: 1em;
+  background: linear-gradient(to bottom, orange, white);
+  border-width: 0.05em 0;
+}
+
+form {
   height: 100%;
   flex-grow: 2;
   margin-bottom: 0em;
@@ -72,24 +96,47 @@ form{
   justify-content: stretch;
   align-items: stretch;
   margin-top: 0;
-  background-color: #48b;
+  background-color: rgb(64, 208, 221);
 }
 
 @media only screen and (max-width: 600px) {
   .App-header {
+    margin-top: 50px;
     width: 70%;
-    min-height: 65%;
+    min-height: 55%;
   }
-  button{
+  button {
     width: 80px;
     height: 30px;
     font-size: small;
   }
-  
 }
-@media only screen and (max-height: 400px){
-  body{
+@media only screen and (max-height: 400px) {
+  body {
     overflow: auto;
   }
+}
+
+/* .secret{
+  background: black;
+  color:white;
+  mix-blend-mode: multiply;
   
+  font-size:xx-large;
+  
+}
+@keyframes march{
+  to{stroke-dashoffset: -15px; }
+} */
+
+.dashSecret {
+  stroke: indianred;
+  stroke-width: 4px;
+  fill: none;
+  stroke-dasharray: 10px 5px;
+  height: 100px;
+  width: 200px;
+  stroke-dashoffset: -10px;
+  animation: march 1s infinite;
+  mask-repeat: repeat;
 }
